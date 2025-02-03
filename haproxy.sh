@@ -31,6 +31,10 @@ install_jq() {
             sleep 1
             sudo apt-get update
             sudo apt-get install -y jq
+        elif command -v dnf &> /dev/null; then
+            echo -e "${RED}jq is not installed. Installing...${NC}"
+            sleep 1
+            sudo dnf install -y jq
         else
             echo -e "${RED}Error: Unsupported package manager. Please install jq manually.${NC}\n"
             read -p "Press any key to continue..."
@@ -52,6 +56,10 @@ install_haproxy() {
             sleep 1
             sudo apt-get update
             sudo apt-get install -y haproxy
+        elif command -v dnf &> /dev/null; then
+            echo -e "${RED}HAProxy is not installed. Installing...${NC}"
+            sleep 1
+            sudo dnf install -y haproxy
         else
             echo -e "${RED}Error: Unsupported package manager. Please install HAProxy manually.${NC}\n"
             read -p "Press any key to continue..."
